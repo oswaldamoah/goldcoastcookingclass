@@ -1,215 +1,638 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Coast Cooking Class - Learn to Cook with Passion</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gold Coast Cooking Class</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-placeholder">
-                    <span class="logo-text">Gold Coast</span>
-                    <span class="logo-subtext">Cooking Class</span>
-                </div>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Header / Navigation -->
+    <header class="gc-header" id="navbar">
+    <div class="gc-header-inner">
+        <!-- logo + nav -->
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title animate-fade-up">Master the Art of Cooking</h1>
-            <p class="hero-subtitle animate-fade-up delay-1">Discover your culinary passion with expert-led cooking classes at Gold Coast</p>
-            <a href="#contact" class="cta-button animate-fade-up delay-2">Start Your Journey</a>
-        </div>
-        <div class="hero-decoration"></div>
-    </section>
+    <!-- Hero / Intro -->
+    <section id="home" class="hero gc-hero reveal animate-on-scroll">
+    <div class="hero-content">
+        <h1 class="hero-title">Private Authentic Ghanaian Cooking Class in Accra, Ghana</h1>
+        <p class="hero-subtitle">
+            Learn Traditional Ghanaian Home Cooking in Accra - Authentic Cooking Classes with Experienced Local Cook
+        </p>
+        <a href="https://wa.me/1234567890?text=Hi,%20I'm%20interested%20in%20your%20Ghanaian%20cooking%20class"
+           class="cta-button gc-cta-button">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    Book your Accra cooking experience
+        </a>
+        <p style="margin-top:0.75rem;font-size:0.95rem;color:var(--text-medium);">
+            A real Ghanaian home kitchen, and a menu tailored to you.
+        </p>
+    </div>
+    <div class="hero-decoration"></div>
+</section>
 
-    <!-- About/Services Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">About Us</h2>
-            <p class="about-text animate-on-scroll">Welcome to Gold Coast Cooking Class, where culinary dreams come to life. We're passionate about teaching the art of cooking to enthusiasts of all skill levels.</p>
-            
-            <div id="services" class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">👨‍🍳</div>
-                    <h3>Expert Instructors</h3>
-                    <p>Learn from professional chefs with years of culinary experience</p>
-                </div>
-                <div class="service-card animate-on-scroll delay-1">
-                    <div class="service-icon">🍳</div>
-                    <h3>Hands-On Classes</h3>
-                    <p>Get practical experience with interactive cooking sessions</p>
-                </div>
-                <div class="service-card animate-on-scroll delay-2">
-                    <div class="service-icon">🥘</div>
-                    <h3>Diverse Cuisines</h3>
-                    <p>Explore various cooking styles from around the world</p>
-                </div>
-                <div class="service-card animate-on-scroll delay-3">
-                    <div class="service-icon">📚</div>
-                    <h3>Recipe Collections</h3>
-                    <p>Take home detailed recipes and cooking guides</p>
-                </div>
-                <div class="service-card animate-on-scroll delay-4">
-                    <div class="service-icon">👥</div>
-                    <h3>Small Groups</h3>
-                    <p>Personalized attention in intimate class settings</p>
-                </div>
-                <div class="service-card animate-on-scroll delay-5">
-                    <div class="service-icon">🎓</div>
-                    <h3>All Skill Levels</h3>
-                    <p>Classes designed for beginners to advanced cooks</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Intro / Owner & Process -->
+    <section id="intro" class="about-section gc-intro-section reveal animate-on-scroll">
+        <div class="container narrow">
+            <h2 class="section-title">Akwaaba!</h2>
+            <article class="gc-intro-copy">
 
-    <!-- Call to Action Section -->
-    <section class="cta-section">
-        <div class="cta-content animate-on-scroll">
-            <h2>Ready to Start Cooking?</h2>
-            <p>Send us a message on WhatsApp for enquiries and class bookings</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/1234567890?text=Hi,%20I'm%20interested%20in%20your%20cooking%20classes" class="whatsapp-button" target="_blank">
-                    <span class="whatsapp-icon">💬</span>
-                    Message on WhatsApp
+                <p>
+                    Hello and welcome, I’m so happy to have you join my cooking class. This experience is designed to be
+                    hands-on, engaging, and fun.</p>
+                            <p>
+                    We’ll begin with a brief overview of the menu and techniques you’ll be
+                    learning, so everyone feels comfortable and excited before we start.
+                </p>
+                <p>
+                    From there, we’ll head to the local market together to select fresh, seasonal ingredients and talk
+                    about how to choose the best products. Once we’ve gathered everything we need, we’ll return to my
+                    kitchen, where the real cooking begins.
+                </p>
+                <p>
+                    This class is interactive by design, and participation is encouraged so you can get the most out of
+                    the experience. Ask questions, get involved, and enjoy the process, we’ll be cooking, learning, and
+                    sharing together every step of the way.
+                </p>
+                <p>I’m looking forward to cooking with you!</p>
+                <p >- Geraldine</p>
+
+                <p style="margin-top:1.5rem;">
+                <a href="https://wa.me/1234567890?text=I'd%20love%20to%20book%20a%20Gold%20Coast%20cooking%20class"
+                   class="inline-cta">
+                    Reserve your spot in Geraldine’s kitchen
                 </a>
-                <a href="#contact" class="secondary-button">View Contact Info</a>
+            </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- About / What to Expect -->
+    <section id="about" class="about-section reveal animate-on-scroll">
+        <div class="container narrow">
+            <h2 class="section-title">About
+
+</h2>
+            <article class="gc-about-copy">
+  
+                <p>
+                    Discover authentic Ghanaian home cooking through this immersive cooking classes in Accra, Ghana. Learn
+                    traditional Ghanaian recipes from an experienced cook who grew up mastering family recipes and has spent
+                    years managing restaurants in Accra, bringing both authentic home cooking knowledge and culinary
+                    expertise to every cooking class.
+                </p>
+                <h3>Authentic Home Cooking Classes in Accra, Ghana - What to Expect</h3>
+                <h4>Market Tour &amp; Ingredient Shopping in Accra (Optional)</h4>
+                <p>
+                    Your Ghanaian cooking adventure begins at bustling Accra markets, where you'll learn to select fresh
+                    ingredients for traditional Ghanaian dishes just like local families do. Experience authentic market
+                    culture while sourcing spices, vegetables, and proteins essential to genuine Ghanaian home cooking. Our
+                    market tour teaches you about Ghana's food traditions and ingredient selection with insider knowledge.
+                </p>
+                <h4>Hands-On Ghanaian Home Cooking Lessons</h4>
+                <p>
+                    In a welcoming home kitchen in Accra, you'll master traditional Ghanaian cooking methods passed down
+                    through generations of family cooks. Select and learn to prepare beloved Ghanaian dishes including
+                    jollof rice, banku, fufu, and traditional stews using authentic home cooking techniques. The cooking
+                    classes focus on genuine methods - from grinding spices by hand to achieving the perfect flavor balance
+                    that defines real Ghanaian home cooking.
+                </p>
+                <h4>Cultural Stories &amp; Culinary Passion in Ghana</h4>
+                <p>
+                    Experience the warmth of Ghanaian hospitality while learning from someone who has dedicated her life to
+                    mastering Ghana's culinary traditions. Hear stories of learning from family elders, experimenting with
+                    regional variations across Ghana, and bringing authentic flavors to restaurant kitchens in Accra.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Menu Section (1 main, 1 side + $5 take-home) -->
+    <section id="menu" class="gc-menu-section reveal animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">Menu Choices</h2>
+            <p class="gc-menu-note">
+                You will be able to choose 1 main and 1 side dish from the list below. Beverages (alcoholic or
+                non-alcoholic, as desired) and dessert will also be provided. Once you register, Geraldine will reach out
+                to confirm your menu choices and finalise your booking.
+            </p>
+            <div class="gc-menu-note-card">
+                <div>
+                    <h3>Take-Home Ghana Cooking Knowledge (Optional)</h3>
+                    <p>
+                        For an extra fee of $5, leave with detailed recipe cards for authentic Ghanaian dishes, spice
+                        blending techniques, shopping tips for finding Ghana ingredients internationally, and the
+                        confidence to recreate genuine Ghanaian meals at home.
+                    </p>
+                    <p style="margin-top:0.5rem;font-size:0.95rem;">
+                        Many guests book this option so they can confidently host their own Ghanaian dinner back home.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Main Dishes -->
+            <div class="menu-block">
+                <h3>Main Dishes (Select 1 dish)</h3>
+
+                <h4>Rice &amp; Grain-Based Ghana Classics:</h4>
+                <div class="dish-grid">
+                    <button class="dish-card" data-category="main" data-name="Jollof Rice"
+                            data-img="images/jollof-rice.jpg"
+                            data-desc="Jollof Rice - Ghana's beloved national dish with tomatoes and aromatic spices">
+                        <div class="dish-img" style="background-image:url('images/jollof-rice.jpg')"></div>
+                        <div class="dish-name">Jollof Rice</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Waakye"
+                            data-img="images/waakye.jpg"
+                            data-desc="Waakye - traditional rice and beans cooked with special leaves for authentic Ghana flavor">
+                        <div class="dish-img" style="background-image:url('images/waakye.jpg')"></div>
+                        <div class="dish-name">Waakye</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Omo Tuo"
+                            data-img="images/omo-tuo.jpg"
+                            data-desc="Omo Tuo - rice balls served with soup (popular throughout Ghana)">
+                        <div class="dish-img" style="background-image:url('images/omo-tuo.jpg')"></div>
+                        <div class="dish-name">Omo Tuo</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Kokonte"
+                            data-img="images/kokonte.jpg"
+                            data-desc="Kokonte - cassava flour dish traditional to Ghana">
+                        <div class="dish-img" style="background-image:url('images/kokonte.jpg')"></div>
+                        <div class="dish-name">Kokonte</div>
+                    </button>
+                </div>
+
+                <h4>Ghana's Famous Staples &amp; Dumplings:</h4>
+                <div class="dish-grid">
+                    <button class="dish-card" data-category="main" data-name="Banku"
+                            data-img="images/banku.jpg"
+                            data-desc="Banku - fermented corn and cassava dumplings (coastal Ghana specialty)">
+                        <div class="dish-img" style="background-image:url('images/banku.jpg')"></div>
+                        <div class="dish-name">Banku</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Fufu"
+                            data-img="images/fufu.jpg"
+                            data-desc="Fufu - pounded cassava and plantain (Ghana's most iconic dish)">
+                        <div class="dish-img" style="background-image:url('images/fufu.jpg')"></div>
+                        <div class="dish-name">Fufu</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Kenkey"
+                            data-img="images/kenkey.jpg"
+                            data-desc="Kenkey - fermented corn dumpling wrapped in leaves (traditional Ghana preparation)">
+                        <div class="dish-img" style="background-image:url('images/kenkey.jpg')"></div>
+                        <div class="dish-name">Kenkey</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Konkonte"
+                            data-img="images/konkonte.jpg"
+                            data-desc="Konkonte - cassava flour meal popular in Ghana households">
+                        <div class="dish-img" style="background-image:url('images/konkonte.jpg')"></div>
+                        <div class="dish-name">Konkonte</div>
+                    </button>
+                </div>
+
+                <h4>Traditional Ghana Protein Dishes:</h4>
+                <div class="dish-grid">
+                    <button class="dish-card" data-category="main" data-name="Red Red"
+                            data-img="images/red-red.jpg"
+                            data-desc="Red Red - black-eyed peas in rich palm oil sauce (beloved Ghana comfort food)">
+                        <div class="dish-img" style="background-image:url('images/red-red.jpg')"></div>
+                        <div class="dish-name">Red Red</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Groundnut Soup"
+                            data-img="images/groundnut-soup.jpg"
+                            data-desc="Groundnut Soup - creamy peanut-based soup with meat or fish (Ghana favorite)">
+                        <div class="dish-img" style="background-image:url('images/groundnut-soup.jpg')"></div>
+                        <div class="dish-name">Groundnut Soup</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Palm Nut Soup"
+                            data-img="images/palm-nut-soup.jpg"
+                            data-desc="Palm Nut Soup - traditional Ghana soup with rich, complex flavors">
+                        <div class="dish-img" style="background-image:url('images/palm-nut-soup.jpg')"></div>
+                        <div class="dish-name">Palm Nut Soup</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Light Soup"
+                            data-img="images/light-soup.jpg"
+                            data-desc="Light Soup - clear broth with vegetables and protein (classic Ghana preparation)">
+                        <div class="dish-img" style="background-image:url('images/light-soup.jpg')"></div>
+                        <div class="dish-name">Light Soup</div>
+                    </button>
+                </div>
+
+                <h4>Ghana Vegetable &amp; Plant-Based Mains:</h4>
+                <div class="dish-grid">
+                    <button class="dish-card" data-category="main" data-name="Kontomire Stew"
+                            data-img="images/kontomire-stew.jpg"
+                            data-desc="Kontomire Stew - cocoyam leaves in flavorful sauce (Northern Ghana influence)">
+                        <div class="dish-img" style="background-image:url('images/kontomire-stew.jpg')"></div>
+                        <div class="dish-name">Kontomire Stew</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Garden Egg Stew"
+                            data-img="images/garden-egg-stew.jpg"
+                            data-desc="Garden Egg Stew - eggplant-based dish popular throughout Ghana">
+                        <div class="dish-img" style="background-image:url('images/garden-egg-stew.jpg')"></div>
+                        <div class="dish-name">Garden Egg Stew</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Okro Stew"
+                            data-img="images/okro-stew.jpg"
+                            data-desc="Okro Stew - okra in tomato base with traditional Ghana seasonings">
+                        <div class="dish-img" style="background-image:url('images/okro-stew.jpg')"></div>
+                        <div class="dish-name">Okro Stew</div>
+                    </button>
+                    <button class="dish-card" data-category="main" data-name="Ampesi"
+                            data-img="images/ampesi.jpg"
+                            data-desc="Ampesi - boiled yam, plantain, and vegetables (simple Ghana home cooking)">
+                        <div class="dish-img" style="background-image:url('images/ampesi.jpg')"></div>
+                        <div class="dish-name">Ampesi</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Side Dishes -->
+            <div class="menu-block">
+                <h3>Side Dishes (Select 1 dish)</h3>
+
+                <h4>Fried &amp; Grilled Ghana Favorites:</h4>
+                <div class="dish-grid">
+                    <button class="dish-card" data-category="side" data-name="Kelewele"
+                            data-img="images/kelewele.jpg"
+                            data-desc="Kelewele - spiced fried plantain (Ghana's most popular snack)">
+                        <div class="dish-img" style="background-image:url('images/kelewele.jpg')"></div>
+                        <div class="dish-name">Kelewele</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Fried Plantain"
+                            data-img="images/fried-plantain.jpg"
+                            data-desc="Fried Plantain - sweet plantain prepared Ghana home-style">
+                        <div class="dish-img" style="background-image:url('images/fried-plantain.jpg')"></div>
+                        <div class="dish-name">Fried Plantain</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Grilled Tilapia"
+                            data-img="images/grilled-tilapia.jpg"
+                            data-desc="Grilled Tilapia - whole fish with traditional Ghana seasonings">
+                        <div class="dish-img" style="background-image:url('images/grilled-tilapia.jpg')"></div>
+                        <div class="dish-name">Grilled Tilapia</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Fried Yam"
+                            data-img="images/fried-yam.jpg"
+                            data-desc="Fried Yam - crispy yam with pepper sauce (Ghana street food classic)">
+                        <div class="dish-img" style="background-image:url('images/fried-yam.jpg')"></div>
+                        <div class="dish-name">Fried Yam</div>
+                    </button>
+                </div>
+
+                <h4>Traditional Ghana Sauces &amp; Condiments:</h4>
+                <div class="dish-grid">
+                    <button class="dish-card" data-category="side" data-name="Shito"
+                            data-img="images/shito.jpg"
+                            data-desc="Shito - Ghana's signature black pepper sauce (multiple varieties)">
+                        <div class="dish-img" style="background-image:url('images/shito.jpg')"></div>
+                        <div class="dish-name">Shito</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Pepper Sauce"
+                            data-img="images/pepper-sauce.jpg"
+                            data-desc="Pepper Sauce - fresh hot pepper condiment essential to Ghana cuisine">
+                        <div class="dish-img" style="background-image:url('images/pepper-sauce.jpg')"></div>
+                        <div class="dish-name">Pepper Sauce</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Palava Sauce"
+                            data-img="images/palava-sauce.jpg"
+                            data-desc="Palava Sauce - spinach-based sauce popular in Ghana">
+                        <div class="dish-img" style="background-image:url('images/palava-sauce.jpg')"></div>
+                        <div class="dish-name">Palava Sauce</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Nkontomire"
+                            data-img="images/nkontomire.jpg"
+                            data-desc="Nkontomire - cocoyam leaves sauce traditional to Ghana">
+                        <div class="dish-img" style="background-image:url('images/nkontomire.jpg')"></div>
+                        <div class="dish-name">Nkontomire</div>
+                    </button>
+                </div>
+
+                <h4>Fresh Ghana Sides &amp; Salads:</h4>
+                <div class="dish-grid">
+                    <button class="dish-card" data-category="side" data-name="Ghanaian Coleslaw"
+                            data-img="images/ghanaian-coleslaw.jpg"
+                            data-desc="Ghanaian Coleslaw - cabbage salad with local Ghana twist">
+                        <div class="dish-img" style="background-image:url('images/ghanaian-coleslaw.jpg')"></div>
+                        <div class="dish-name">Ghanaian Coleslaw</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Fresh Avocado Salad"
+                            data-img="images/avocado-salad.jpg"
+                            data-desc="Fresh Avocado Salad - using Ghana's abundant avocados">
+                        <div class="dish-img" style="background-image:url('images/avocado-salad.jpg')"></div>
+                        <div class="dish-name">Fresh Avocado Salad</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Cucumber Tomato Salad"
+                            data-img="images/cucumber-tomato-salad.jpg"
+                            data-desc="Cucumber Tomato Salad - simple fresh salad popular in Ghana">
+                        <div class="dish-img" style="background-image:url('images/cucumber-tomato-salad.jpg')"></div>
+                        <div class="dish-name">Cucumber Tomato Salad</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Mixed Vegetable Salad"
+                            data-img="images/mixed-vegetable-salad.jpg"
+                            data-desc="Mixed Vegetable Salad - seasonal Ghana vegetables with traditional dressing">
+                        <div class="dish-img" style="background-image:url('images/mixed-vegetable-salad.jpg')"></div>
+                        <div class="dish-name">Mixed Vegetable Salad</div>
+                    </button>
+                </div>
+
+                <h4>Specialty Ghana Preparations:</h4>
+                <div class="dish-grid">
+                    <button class="dish-card" data-category="side" data-name="Gari Foto"
+                            data-img="images/gari-foto.jpg"
+                            data-desc="Gari Foto - cassava flakes with vegetables (popular Ghana dish)">
+                        <div class="dish-img" style="background-image:url('images/gari-foto.jpg')"></div>
+                        <div class="dish-name">Gari Foto</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Tatale"
+                            data-img="images/tatale.jpg"
+                            data-desc="Tatale - spiced plantain pancakes (traditional Ghana snack)">
+                        <div class="dish-img" style="background-image:url('images/tatale.jpg')"></div>
+                        <div class="dish-name">Tatale</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Bofrot"
+                            data-img="images/bofrot.jpg"
+                            data-desc="Bofrot - Ghanaian doughnuts (sweet treat from Ghana)">
+                        <div class="dish-img" style="background-image:url('images/bofrot.jpg')"></div>
+                        <div class="dish-name">Bofrot</div>
+                    </button>
+                    <button class="dish-card" data-category="side" data-name="Boiled Eggs Ghana-Style"
+                            data-img="images/boiled-eggs-ghana.jpg"
+                            data-desc="Boiled Eggs Ghana-Style - hard-boiled eggs with traditional seasonings">
+                        <div class="dish-img" style="background-image:url('images/boiled-eggs-ghana.jpg')"></div>
+                        <div class="dish-name">Boiled Eggs Ghana-Style</div>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
+    <!-- About Geraldine -->
+    <section class="about-section gc-about-geraldine reveal animate-on-scroll">
+        <div class="container narrow">
+            <h2 class="section-title">About Geraldine</h2>
+            <p>
+                About Geraldine
+                Your teacher will be Geraldine. She comes from XX and has been living in Accra for XX years. She’s been
+                cooking in her home and with her family her entire life, tweaking Ghanaian recipes and making them her own.
+                Cooking and trying global cuisines is her greatest passion. She has also managed two of Accra’s most popular
+                restaurants. And now, she’s bringing these two ways she has approached cooking together to her classes.
+            </p>
+            <h3>Book Your Authentic Ghana Cooking Experience in Accra</h3>
+            <p>
+                Experience genuine Ghanaian home cooking in Accra with this hands-on cooking class led by an experienced
+                cook passionate about Ghana's culinary heritage. Learn traditional Ghana recipes, explore local Accra
+                markets, and enjoy authentic Ghanaian hospitality.
+                Master the authentic flavors of Ghana through traditional home cooking methods and take home the genuine
+                taste of Ghanaian cuisine.
+            </p>
+            <p style="margin-top:1.5rem;">
+            Past guests often say this class becomes a highlight of their time in Ghana.
+            <a href="#reviews" class="inline-cta">See what they share about their experience</a>
+            and then
+            <a href="https://wa.me/1234567890?text=I'd%20like%20to%20book%20Geraldine's%20class"
+               class="inline-cta">
+                claim your date before it books out
+            </a>.
+        </p>
+        </div>
+    </section>
+
+    <!-- Video Gallery with Lightbox -->
+    <section id="videos" class="gc-video-section reveal animate-on-scroll">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">What Our Students Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"The best cooking class I've ever attended! The instructors are patient and knowledgeable. I learned so much in just one session."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">S</div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Beginner's Course</p>
-                        </div>
+            <h2 class="section-title">Video Gallery</h2>
+            <p class="gc-video-intro">
+                Step into the kitchen, walk the market, and see what it feels like to cook with Geraldine.
+                Tap any clip to watch in a full-screen lightbox.
+            </p>
+            <div class="gc-video-grid">
+                <button class="video-card"
+                        data-video-src="media/videos/GoldCoastCookingClass_1.MOV"
+                        aria-label="Play market tour video">
+                    <div class="video-thumb" style="background-image:url('images/video-market.jpg')">
+                        <i class="fa-solid fa-play"></i>
                     </div>
-                </div>
-                <div class="testimonial-card animate-on-scroll delay-1">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Amazing experience! The hands-on approach really helped me gain confidence in the kitchen. Highly recommend to anyone looking to improve their cooking skills."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>Advanced Techniques</p>
-                        </div>
+                    <span class="video-title">Market Tour &amp; Ingredient Shopping</span>
+                </button>
+
+                <button class="video-card"
+                        data-video-src="media/videos/kitchen-session.mp4"
+                        aria-label="Play kitchen session video">
+                    <div class="video-thumb" style="background-image:url('images/video-kitchen.jpg')">
+                        <i class="fa-solid fa-play"></i>
                     </div>
-                </div>
-                <div class="testimonial-card animate-on-scroll delay-2">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Gold Coast Cooking Class transformed my cooking! The recipes are fantastic and the atmosphere is welcoming. I've made so many new friends here."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">E</div>
-                        <div class="author-info">
-                            <h4>Emma Williams</h4>
-                            <p>International Cuisine</p>
-                        </div>
+                    <span class="video-title">Hands-On Kitchen Session</span>
+                </button>
+
+                <button class="video-card"
+                        data-video-src="media/videos/jollof-class.mp4"
+                        aria-label="Play jollof class video">
+                    <div class="video-thumb" style="background-image:url('images/video-jollof.jpg')">
+                        <i class="fa-solid fa-play"></i>
                     </div>
-                </div>
+                    <span class="video-title">Jollof &amp; Salad Class</span>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <!-- Reviews / Carousel -->
+    <section id="reviews" class="testimonials-section gc-reviews-section reveal animate-on-scroll">
+    <div class="container">
+        <h2 class="section-title">Guest Reviews</h2>
+
+        <div class="gc-review-carousel-wrapper">
+            <button class="gc-review-arrow prev" type="button" aria-label="Previous review">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="gc-review-viewport">
+                <div class="gc-review-track" id="reviewTrack">
+                    <div class="gc-review-card"
+                         data-full="Geraldine is a friendly and warm host. She is genuine, a good communicator and was eager to select a menu that we liked. The market visit was interesting and fun. She showed us various items and explained how she uses them for cooking. She also took us to a store where we could buy spices. We made Kontomire (coco yam leaf) stew, and it was delicious. Geraldine premade Nkate Cake (peanut brittle) as a sweet treat for dessert. This was greatly appreciated. We had a wonderful time with Geraldine and highly recommend this experience. - Rebecca, 2025-11-26">
+                        <p class="review-preview">
+                            Geraldine is a friendly and warm host. She is genuine, a good communicator and was eager to select a menu that we liked. The market visit was interesting and fun...
+                        </p>
+                        <button class="review-readmore">Read full review</button>
+                    </div>
+
+                    <div class="gc-review-card"
+                         data-full="I've done cooking classes while traveling in a few different countries, and this was truly a special experience. Geraldine is humble when she teaches, but she is masterful at her craft. She's so kind and welcoming - answering our questions, exchanging life experiences, and more. We learned to make a one-pot jollof rice with fried fish, and a Ghanaian salad. It was so so good. Not a demonstration - we all got to get in there and cook together. Highly highly recommend. - Hannah, 2025-08-31">
+                        <p class="review-preview">
+                            I've done cooking classes while traveling in a few different countries, and this was truly a special experience. Geraldine is humble when she teaches, but she is masterful at her craft...
+                        </p>
+                        <button class="review-readmore">Read full review</button>
+                    </div>
+
+                    <div class="gc-review-card"
+                         data-full="Geraldine was so very nice to welcome us to her home and introduce us to Ghanaian cooking. We did the jollof rice with beef, and afterward had a nice meal with good flowing conversation and a nice refreshing drink. Thank you again Geraldine!!!! - crystelp, 2024-11-24">
+                        <p class="review-preview">
+                            Geraldine was so very nice to welcome us to her home and introduce us to Ghanaian cooking. We did the jollof rice with beef, and afterward had a nice meal...
+                        </p>
+                        <button class="review-readmore">Read full review</button>
+                    </div>
+
+                    <div class="gc-review-card"
+                         data-full="It was a great experience with Geraldine. We first went to the market with her and were able to pick the menu we wanted to cook. The market visit with a local was a very special experience. At Geraldine’s home we cooked Peanut Soup with Rice Balls and Palaver Sauce with Yam. Geraldine is an amazing cook and it was so much fun to spend time with her in the kitchen. After cooking we enjoyed an amazing meal and had very insightful discussions about the culture in Ghana. We would definitely recommend you the experience - one of the highlights on our 2.5 weeks trip through Ghana. - annikm, 2024-01-12">
+                        <p class="review-preview">
+                            It was a great experience with Geraldine. We first went to the market with her and were able to pick the menu we wanted to cook. The market visit with a local was a very special experience...
+                        </p>
+                        <button class="review-readmore">Read full review</button>
+                    </div>
+
+                    <div class="gc-review-card"
+                         data-full="Geraldine was a lovely and pleasant host. Very patient. The dish came out delicious and she even made a Ghanaian salad to go along with it. Highly recommend her for a cooking class. - Venenci, 2023-05-12">
+                        <p class="review-preview">
+                            Geraldine was a lovely and pleasant host. Very patient. The dish came out delicious and she even made a Ghanaian salad to go along with it...
+                        </p>
+                        <button class="review-readmore">Read full review</button>
+                    </div>
+
+                    <div class="gc-review-card"
+                         data-full="We booked the market shopping to get the full experience. If you go on this activity with an open mind and you are willing to be hands on, you will have an amazing experience! I'm going back to Canada with a new recipe in hand! - kelly, 2025-12-31">
+                        <p class="review-preview">
+                            We booked the market shopping to get the full experience. If you go on this activity with an open mind and you are willing to be hands on, you will have an amazing experience...
+                        </p>
+                        <button class="review-readmore">Read full review</button>
+                    </div>
+
+                    <div class="gc-review-card"
+                         data-full="She was very personable. She taught me how to shop at the local market and how to make one of my favorite meals. I felt like family at her home. I will definitely book her again. - jamie, 2026-01-02">
+                        <p class="review-preview">
+                            She was very personable. She taught me how to shop at the local market and how to make one of my favorite meals. I felt like family at her home...
+                        </p>
+                        <button class="review-readmore">Read full review</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="gc-review-arrow next" type="button" aria-label="Next review">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <!-- Skewed Contact Footer -->
+    <section id="contact" class="contact-section reveal animate-on-scroll">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+            <h2 class="section-title">Ready to Book Your Experience?</h2>
+            <p class="about-text">
+                Most guests tell us this class becomes a highlight of their time in Ghana.
+                Share your dates and food preferences, and Geraldine will help you design the perfect menu.
+            </p>
+
             <div class="contact-content">
-                <div class="contact-info animate-on-scroll">
+                <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
                         <div>
-                            <h3>Call Us</h3>
-                            <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                            <h3>Book Your Date</h3>
+                            <p>WhatsApp / Call: +233 XX XXX XXXX</p>
+                            <p>Accra, Ghana</p>
+                            <p style="margin-top:0.5rem;">
+                                Weekends and popular travel dates fill quickly. Booking early gives you more choice of
+                                market days and dishes.
+                            </p>
                         </div>
                     </div>
+
                     <div class="contact-item">
-                        <div class="contact-icon">💬</div>
-                        <div>
-                            <h3>WhatsApp</h3>
-                            <p><a href="https://wa.me/1234567890" target="_blank">+1 (234) 567-890</a></p>
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
                         <div>
                             <h3>Email</h3>
-                            <p><a href="mailto:info@goldcoastcooking.com">info@goldcoastcooking.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h3>Location</h3>
-                            <p>Gold Coast, Australia</p>
+                            <p><a href="mailto:hello@goldcoastcookingclass.com">hello@goldcoastcookingclass.com</a></p>
+                            <p style="margin-top:0.5rem;">
+                                Share your dates, group size, and any allergies or preferences and you’ll receive a
+                                personal reply from Geraldine.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="social-media animate-on-scroll delay-1">
-                    <h3>Follow Us</h3>
+
+                <div class="social-media">
+                    <h3>Stay Connected</h3>
+                    <p style="margin-bottom:1rem;">
+                        Follow along for class highlights, new menus, and behind-the-scenes market visits.
+                    </p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
+                        <a class="social-link" href="https://wa.me/1234567890" target="_blank" rel="noopener"
+                           aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
+                        <a class="social-link" href="https://instagram.com/goldcoastcookingclass" target="_blank" rel="noopener"
+                           aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
+                        <a class="social-link" href="https://www.tiktok.com/@goldcoastcookin" target="_blank" rel="noopener"
+                           aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
                         </a>
                     </div>
                 </div>
             </div>
+
+            <div class="footer gc-footer-line">
+                © <span id="gcYear"></span> Gold Coast Cooking Class · Crafted with care in Accra, Ghana
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Gold Coast Cooking Class. All rights reserved.</p>
-            <p>Made with ❤️ for food lovers</p>
+    <!-- Dish Modal -->
+    <div class="gc-modal" id="dishModal" aria-hidden="true">
+        <div class="gc-modal-backdrop" data-close="modal"></div>
+        <div class="gc-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dishModalTitle">
+            <button class="gc-modal-close" data-close="modal" aria-label="Close">
+                <span class="icon icon-close" aria-hidden="true"></span>
+            </button>
+            <div class="gc-modal-img" id="dishModalImg"></div>
+            <h3 id="dishModalTitle"></h3>
+            <p id="dishModalDesc"></p>
         </div>
-    </footer>
+    </div>
+
+    <!-- Video Lightbox Modal -->
+    <div class="gc-modal" id="videoModal" aria-hidden="true">
+        <div class="gc-modal-backdrop" data-close="video"></div>
+        <div class="gc-modal-dialog gc-modal-dialog--wide" role="dialog" aria-modal="true">
+            <button class="gc-modal-close" data-close="video" aria-label="Close video">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="videoTitle" class="gc-modal-title"></h3>
+            <video id="videoPlayer" playsinline></video>
+        </div>
+    </div>
+
+    <!-- Review Full Text Modal -->
+    <div class="gc-modal" id="reviewModal" aria-hidden="true">
+        <div class="gc-modal-backdrop" data-close="review"></div>
+        <div class="gc-modal-dialog" role="dialog" aria-modal="true">
+            <button class="gc-modal-close" data-close="review" aria-label="Close full review">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <p id="reviewFullText"></p>
+
+            <div class="gc-modal-review-nav">
+                <button id="reviewModalPrev" type="button" aria-label="Previous review">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button id="reviewModalNext" type="button" aria-label="Next review">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,15 @@
+
+make footer that fits page aesthetic - no slanted stuff just socials and email and etc
+redo the review carousel to look modern and move slowly unless manually operated - should have arrows that when pressed stops moving auto and start moving manually
+
+put everything together in the contact section. doesnt need to be divided
+review carousel should be circular list and should be clicked on if someone wants to read full thing, so only some ni of words are allowed and user clicks to read full thing and carousel stull works in preview mode
+
+redesign video gallery to actually look like a modern video gallery with lightbox and dope controls. use the videos folder for video material
+
+
+use fontawesome for icons instead of drawing them manually
+<i class="fa-brands fa-whatsapp"></i>
+<i class="fa-solid fa-phone"></i>
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-tiktok"></i>
