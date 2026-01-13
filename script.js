@@ -236,6 +236,28 @@ rippleStyle.textContent = `
         }
     }
 `;
+
+// ==========================================
+// Video thumbnail hover preview
+// ==========================================
+window.addEventListener('load', () => {
+    const thumbVideos = document.querySelectorAll('.video-thumb-media');
+    thumbVideos.forEach(video => {
+        const card = video.closest('.video-card');
+        if (!card) return;
+
+        card.addEventListener('mouseenter', () => {
+            video.play().catch(() => {});
+        });
+
+        card.addEventListener('mouseleave', () => {
+            video.pause();
+            try {
+                video.currentTime = 0;
+            } catch (e) {}
+        });
+    });
+});
 document.head.appendChild(rippleStyle);
 
 // ==========================================
@@ -379,6 +401,44 @@ document.head.appendChild(rippleStyle);
 
 // ==========================================
 // Video Lightbox (using <video> not HTML preview only)
+(function initVideoCarousel() {
+    const track = document.querySelector('.gc-video-track');
+    const prevBtn = document.querySelector('.gc-video-arrow.prev');
+    const nextBtn = document.querySelector('.gc-video-arrow.next');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const cards = Array.from(track.children);
+    const total = cards.length;
+    if (!total) return;
+
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const viewport = track.parentElement;
+        const viewportWidth = viewport.getBoundingClientRect().width;
+        const gap = 24; // match CSS approx (1.5rem)
+        const offset = -(viewportWidth + gap) * currentIndex;
+        track.style.transform = `translateX(${offset}px)`;
+    }
+
+    function goTo(index) {
+        currentIndex = (index + total) % total;
+        updateCarousel();
+    }
+
+    prevBtn.addEventListener('click', () => {
+        goTo(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        goTo(currentIndex + 1);
+    });
+
+    window.addEventListener('resize', updateCarousel);
+
+    updateCarousel();
+})();
+
 // ==========================================
 (function initVideoLightbox() {
     const modal = document.getElementById('videoModal');

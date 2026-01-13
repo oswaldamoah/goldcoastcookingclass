@@ -432,36 +432,63 @@
     <section id="videos" class="gc-video-section reveal animate-on-scroll">
         <div class="container">
             <h2 class="section-title">Video Gallery</h2>
-            <p class="gc-video-intro">
-                Step into the kitchen, walk the market, and see what it feels like to cook with Geraldine.
-                Tap any clip to watch in a full-screen lightbox.
-            </p>
-            <div class="gc-video-grid">
-                <button class="video-card"
-                        data-video-src="media/videos/GoldCoastCookingClass_1.MOV"
-                        aria-label="Play market tour video">
-                    <div class="video-thumb" style="background-image:url('images/video-market.jpg')">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-                    <span class="video-title">Market Tour &amp; Ingredient Shopping</span>
+ 
+                <div class="gc-video-carousel">
+                <button class="gc-video-arrow prev" type="button" aria-label="Previous video">
+                    <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
-                <button class="video-card"
-                        data-video-src="media/videos/kitchen-session.mp4"
-                        aria-label="Play kitchen session video">
-                    <div class="video-thumb" style="background-image:url('images/video-kitchen.jpg')">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-                    <span class="video-title">Hands-On Kitchen Session</span>
-                </button>
+                <div class="gc-video-viewport">
+                    <div class="gc-video-track">
+                        <button class="video-card"
+                                data-video-src="media/videos/GoldCoastCookingClass_1.MOV"
+                                aria-label="Play market tour video">
+                            <div class="video-thumb">
+                                <video class="video-thumb-media" src="media/videos/GoldCoastCookingClass_1.MOV" muted playsinline preload="metadata"></video>
+                                <i class="fa-solid fa-play"></i>
+                            </div>
+                        </button>
 
-                <button class="video-card"
-                        data-video-src="media/videos/jollof-class.mp4"
-                        aria-label="Play jollof class video">
-                    <div class="video-thumb" style="background-image:url('images/video-jollof.jpg')">
-                        <i class="fa-solid fa-play"></i>
+                        <button class="video-card"
+                                data-video-src="media/videos/GoldCoastCookingClass_2.MOV"
+                                aria-label="Play kitchen session video">
+                            <div class="video-thumb">
+                                <video class="video-thumb-media" src="media/videos/GoldCoastCookingClass_2.MOV" muted playsinline preload="metadata"></video>
+                                <i class="fa-solid fa-play"></i>
+                            </div>
+                        </button>
+
+                        <button class="video-card"
+                                data-video-src="media/videos/GoldCoastCookingClass_3.MOV"
+                                aria-label="Play cooking class video">
+                            <div class="video-thumb">
+                                <video class="video-thumb-media" src="media/videos/GoldCoastCookingClass_3.MOV" muted playsinline preload="metadata"></video>
+                                <i class="fa-solid fa-play"></i>
+                            </div>
+                        </button>
+
+                        <button class="video-card"
+                                data-video-src="media/videos/GoldCoastCookingClass_4.MOV"
+                                aria-label="Play class highlights video">
+                            <div class="video-thumb">
+                                <video class="video-thumb-media" src="media/videos/GoldCoastCookingClass_4.MOV" muted playsinline preload="metadata"></video>
+                                <i class="fa-solid fa-play"></i>
+                            </div>
+                        </button>
+
+                        <button class="video-card"
+                                data-video-src="media/videos/GoldCoastCookingClass_5.MOV"
+                                aria-label="Play guest moments video">
+                            <div class="video-thumb">
+                                <video class="video-thumb-media" src="media/videos/GoldCoastCookingClass_5.MOV" muted playsinline preload="metadata"></video>
+                                <i class="fa-solid fa-play"></i>
+                            </div>
+                        </button>
                     </div>
-                    <span class="video-title">Jollof &amp; Salad Class</span>
+                </div>
+
+                <button class="gc-video-arrow next" type="button" aria-label="Next video">
+                    <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
         </div>
@@ -548,11 +575,6 @@
     <section id="contact" class="contact-section reveal animate-on-scroll">
         <div class="container">
             <h2 class="section-title">Ready to Book Your Experience?</h2>
-            <p class="about-text">
-                Most guests tell us this class becomes a highlight of their time in Ghana.
-                Share your dates and food preferences, and Geraldine will help you design the perfect menu.
-            </p>
-
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
