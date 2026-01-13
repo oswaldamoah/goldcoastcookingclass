@@ -111,8 +111,8 @@ a {
     position: fixed;
     top: 0;
     width: 100%;
-    /* slightly warm brown, translucent, blurred header */
-    background: rgba(139, 111, 71, 0.10); /* based on --brown */
+    /* slightly warm brown, translucent, blurred header (desktop / default) */
+    background: rgba(139, 111, 71, 0.10);
     backdrop-filter: blur(18px);
     box-shadow: 0 2px 20px var(--shadow);
     z-index: 1000;
@@ -208,10 +208,14 @@ a {
 }
 
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    background: transparent;
+    border: none;
+    box-shadow: none; /* no box container shadow */
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.45));
 }
 
 .hamburger span {
@@ -339,7 +343,7 @@ a {
    About/Services Section
    ========================================== */
 .about-section {
-    padding: 2rem 2rem;
+    padding: 3rem 1.5rem;
     background: var(--cream-light);
 }
 
@@ -498,7 +502,7 @@ a {
    Testimonials Section
    ========================================== */
 .testimonials-section {
-    padding: 2rem 2rem;
+    padding: 3rem 1.5rem;
     background: var(--cream);
 }
 
@@ -573,7 +577,7 @@ a {
    Contact Section (coffee-toned)
    ========================================== */
 .contact-section {
-    padding: 3.5rem 2rem 3rem;
+    padding: 3.5rem 1.5rem 3rem;
     background: radial-gradient(circle at top left, #4a3320 0%, #3a2818 45%, #1a1009 100%);
     color: var(--cream-light);
 }
@@ -696,32 +700,6 @@ a {
    Responsive Design
    ========================================== */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: var(--cream-light);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px var(--shadow);
-        padding: 2rem 0;
-        gap: 0;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-link {
-        padding: 1rem 0;
-    }
-
     .hero-title {
         font-size: 2.5rem;
     }
@@ -790,6 +768,7 @@ a {
     top: 0;
     width: 100%;
     z-index: 1000;
+    
 }
 
 /* Hide when JS adds .nav-hidden */
@@ -879,7 +858,7 @@ a {
    Menu Section / Dish Grid & Modal
    ========================================== */
 .gc-menu-section {
-    padding: 2rem 2rem;
+    padding: 3rem 1.5rem;
     background: var(--cream-light);
 }
 
@@ -1329,7 +1308,7 @@ a {
    ========================================== */
 .gc-reviews-section {
     background: var(--cream);
-    padding: 6rem 2rem;
+    padding: 3.5rem 1.5rem 4.5rem;
 }
 
 /* Carousel shell */
@@ -1409,6 +1388,68 @@ a {
 
 /* Centered on small screens */
 @media (max-width: 768px) {
+    body {
+        font-size: 17px;
+    }
+
+    .nav-container {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        align-items: center;
+        padding: 0.75rem 1.25rem 1rem;
+        flex-direction: column;
+        gap: 0.75rem;
+        background: rgba(42, 30, 18, 0.98);
+        border-radius: 0 0 18px 18px;
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+        transform-origin: top;
+        transform: scaleY(0.9);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    }
+
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: scaleY(1);
+    }
+
+    .nav-link {
+        color: rgba(255, 248, 240, 0.92);
+    }
+
+    .nav-link::after {
+        background: var(--accent-gold);
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1100;
+    }
+
+    .hamburger span {
+        background: #fdf4e8;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(4px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
     .gc-review-carousel-wrapper {
         gap: 0.5rem;
     }
@@ -1440,7 +1481,7 @@ a {
    Video Section (Ghana page specific)
    ========================================== */
 .gc-video-section {
-    padding: 2rem 2rem;
+    padding: 3rem 1.5rem;
     background: var(--cream);
 }
 

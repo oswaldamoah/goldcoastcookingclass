@@ -276,7 +276,6 @@ document.head.appendChild(rippleStyle);
     let currentIndex = 0;
     let autoMode = true;
     let autoTimer = null;
-
     function updateCarousel() {
         const viewport = track.parentElement;
         const viewportWidth = viewport.getBoundingClientRect().width;
@@ -327,6 +326,31 @@ document.head.appendChild(rippleStyle);
     });
 
     window.addEventListener('resize', updateCarousel);
+        // Basic touch-swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function onTouchStart(e) {
+            touchStartX = e.changedTouches[0].clientX;
+        }
+
+        function onTouchEnd(e) {
+            touchEndX = e.changedTouches[0].clientX;
+            const diff = touchEndX - touchStartX;
+            const threshold = 40;
+            if (Math.abs(diff) < threshold) return;
+            userInteraction();
+            if (diff < 0) {
+                next();
+            } else {
+                prev();
+            }
+        }
+
+        const viewport = track.parentElement;
+        viewport.addEventListener('touchstart', onTouchStart, { passive: true });
+        viewport.addEventListener('touchend', onTouchEnd, { passive: true });
+
 
     updateCarousel();
     startAuto();
@@ -410,8 +434,8 @@ document.head.appendChild(rippleStyle);
     const cards = Array.from(track.children);
     const total = cards.length;
     if (!total) return;
-
     let currentIndex = 0;
+    let autoTimer = null;
 
     function updateCarousel() {
         const viewport = track.parentElement;
@@ -420,23 +444,70 @@ document.head.appendChild(rippleStyle);
         const offset = -(viewportWidth + gap) * currentIndex;
         track.style.transform = `translateX(${offset}px)`;
     }
-
     function goTo(index) {
         currentIndex = (index + total) % total;
         updateCarousel();
     }
 
-    prevBtn.addEventListener('click', () => {
+    function next() {
+        goTo(currentIndex + 1);
+    }
+
+    function prev() {
         goTo(currentIndex - 1);
+    }
+
+    function startAuto() {
+        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = setInterval(next, 6000);
+    }
+
+    function userInteraction() {
+        if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+        }
+    }
+
+    prevBtn && prevBtn.addEventListener('click', () => {
+        userInteraction();
+        prev();
     });
 
-    nextBtn.addEventListener('click', () => {
-        goTo(currentIndex + 1);
+    nextBtn && nextBtn.addEventListener('click', () => {
+        userInteraction();
+        next();
     });
+
+    // Touch swipe for videos
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function onTouchStart(e) {
+        touchStartX = e.changedTouches[0].clientX;
+    }
+
+    function onTouchEnd(e) {
+        touchEndX = e.changedTouches[0].clientX;
+        const diff = touchEndX - touchStartX;
+        const threshold = 40;
+        if (Math.abs(diff) < threshold) return;
+        userInteraction();
+        if (diff < 0) {
+            next();
+        } else {
+            prev();
+        }
+    }
+
+    const viewport = track.parentElement;
+    viewport.addEventListener('touchstart', onTouchStart, { passive: true });
+    viewport.addEventListener('touchend', onTouchEnd, { passive: true });
 
     window.addEventListener('resize', updateCarousel);
 
     updateCarousel();
+    startAuto();
 })();
 
 // ==========================================
