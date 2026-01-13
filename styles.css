@@ -59,8 +59,9 @@ a {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 248, 240, 0.95);
-    backdrop-filter: blur(10px);
+    /* slightly warm brown, translucent, blurred header */
+    background: rgba(139, 111, 71, 0.10); /* based on --brown */
+    backdrop-filter: blur(18px);
     box-shadow: 0 2px 20px var(--shadow);
     z-index: 1000;
     transition: all 0.3s ease;
@@ -68,7 +69,8 @@ a {
 
 #navbar.gc-header.scrolled,
 .navbar.scrolled {
-    background: rgba(255, 248, 240, 0.98);
+    /* a touch more opaque on scroll, still warm and glassy */
+    background: rgba(139, 111, 71, 0.16);
     box-shadow: 0 2px 30px var(--shadow-medium);
 }
 
@@ -709,7 +711,7 @@ a {
    Ghana Page Specific – Layout & Header
    ========================================== */
 .gc-header {
-    /* reuse the main navbar styling */
+    /* reuse the main navbar styling (fixed already above) */
     position: fixed;
     top: 0;
     width: 100%;
@@ -722,10 +724,10 @@ a {
     transition: transform 0.25s ease;
 }
 
-/* blurred bar when scrolling */
+/* keep scroll state subtle + transparent as well */
 .gc-header.scrolled {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(16px);
+    background: rgba(139, 111, 71, 0.16);
+    backdrop-filter: blur(18px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
