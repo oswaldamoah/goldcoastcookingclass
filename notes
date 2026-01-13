@@ -13,3 +13,7 @@ use fontawesome for icons instead of drawing them manually
 <i class="fa-solid fa-phone"></i>
 <i class="fa-brands fa-instagram"></i>
 <i class="fa-brands fa-tiktok"></i>
+
+
+move guest review section before video section. 
+for the reviews make the cards look like note sheets. just give review aesthetic formatting the names of reviewers and dates nicely especially in full review view but maintain structure. 
