@@ -1,35 +1,5 @@
 // filepath: c:\Users\Oswald\Documents\CODE\goldcoastcookingclass\script.js
-
 // ==========================================
-// Smooth Scroll Navigation
-// ==========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (!href || href === '#') return;
-
-        const target = document.querySelector(href);
-        if (!target) return;
-
-        e.preventDefault();
-
-        const navEl = document.getElementById('navbar') || document.querySelector('.navbar');
-        const navHeight = navEl ? navEl.offsetHeight : 0;
-        const targetPosition = target.offsetTop - navHeight;
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
-
-        const navMenu = document.getElementById('navMenu');
-        if (navMenu) navMenu.classList.remove('active');
-
-        const hamburger = document.getElementById('hamburger');
-        if (hamburger) hamburger.classList.remove('active');
-    });
-});
-
 // ==========================================
 // Navbar Scroll Effect (hide/show + blur)
 // ==========================================
