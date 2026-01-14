@@ -316,10 +316,11 @@ a {
     }
 }
 
+
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
+    transform: translateY(26px);
+    transition: opacity 0.55s ease-out, transform 0.55s ease-out;
 }
 
 .animate-on-scroll.visible {
@@ -337,7 +338,7 @@ a {
    About/Services Section
    ========================================== */
 .about-section {
-    padding: 3rem 1.5rem;
+    padding: 2.75rem 1.5rem 3rem;
     background: var(--cream-light);
 }
 
@@ -993,7 +994,7 @@ a {
    Menu Section / Dish Grid & Modal
    ========================================== */
 .gc-menu-section {
-    padding: 3rem 1.5rem;
+    padding: 2.75rem 1.5rem 3rem;
     background: var(--cream-light);
 }
 
@@ -1443,7 +1444,7 @@ a {
    ========================================== */
 .gc-reviews-section {
     background: var(--cream);
-    padding: 3.5rem 1.5rem 4.5rem;
+    padding: 3rem 1.5rem 3.5rem;
 }
 
 /* Carousel shell */
@@ -1594,7 +1595,7 @@ a {
    Video Section (Ghana page specific)
    ========================================== */
 .gc-video-section {
-    padding: 3rem 1.5rem;
+    padding: 2.75rem 1.5rem 3rem;
     background: var(--cream);
 }
 
