@@ -106,11 +106,11 @@ if (hamburger && navMenu) {
 
 // ==========================================
 // Scroll-Triggered Animations (Framer-like)
+// ==========================================
 const observerOptions = {
     root: null,
-    threshold: 0.2,
-    // Trigger a bit earlier and keep things smooth as you scroll
-    rootMargin: '0px 0px -15% 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -259,6 +259,7 @@ window.addEventListener('load', () => {
     });
 });
 document.head.appendChild(rippleStyle);
+
 // Review Carousel – circular, preview + lightbox carousel (auto + manual)
 // ==========================================
 (function initReviewCarousel() {
@@ -273,7 +274,7 @@ document.head.appendChild(rippleStyle);
     if (!viewport || !total) return;
 
     let currentIndex = 0;
-    let isVisible = false;
+        let isVisible = false;
     let autoTimer = null;
 
     function scrollToIndex(index, smooth = true) {
@@ -282,23 +283,6 @@ document.head.appendChild(rippleStyle);
         if (!card) return;
         const behavior = smooth ? 'smooth' : 'auto';
         card.scrollIntoView({ behavior, inline: 'center', block: 'nearest' });
-    }
-
-    function getNearestIndex() {
-        const viewportRect = viewport.getBoundingClientRect();
-        let closestIdx = 0;
-        let minDist = Infinity;
-        cards.forEach((card, idx) => {
-            const rect = card.getBoundingClientRect();
-            const cardCenter = rect.left + rect.width / 2;
-            const viewportCenter = viewportRect.left + viewportRect.width / 2;
-            const dist = Math.abs(cardCenter - viewportCenter);
-            if (dist < minDist) {
-                minDist = dist;
-                closestIdx = idx;
-            }
-        });
-        return closestIdx;
     }
 
     function next() {
@@ -310,20 +294,17 @@ document.head.appendChild(rippleStyle);
     }
 
     function startAuto() {
-        if (autoTimer) clearInterval(autoTimer);
         autoTimer = setInterval(() => {
             if (!isVisible) return;
-            // Always advance from the card currently closest to center
-            const startFrom = getNearestIndex();
-            scrollToIndex(startFrom + 1);
+            next();
         }, 7000);
+        autoTimer = setInterval(next, 7000);
     }
 
     function stopAuto() {
         if (!autoTimer) return;
         clearInterval(autoTimer);
         autoTimer = null;
-    }
     }
 
     // Arrow buttons (visible on larger screens)
@@ -342,13 +323,24 @@ document.head.appendChild(rippleStyle);
     viewport.addEventListener('touchstart', userInteracted, { passive: true });
     viewport.addEventListener('wheel', userInteracted, { passive: true });
     viewport.addEventListener('mousedown', userInteracted);
+
     // Snap to nearest card after manual swipe/scroll on touch devices
     viewport.addEventListener('touchend', () => {
-        const nearest = getNearestIndex();
-        scrollToIndex(nearest);
+        const viewportRect = viewport.getBoundingClientRect();
+        let closestIdx = 0;
+        let minDist = Infinity;
+        cards.forEach((card, idx) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.left + rect.width / 2;
+            const viewportCenter = viewportRect.left + viewportRect.width / 2;
+            const dist = Math.abs(cardCenter - viewportCenter);
+            if (dist < minDist) {
+                minDist = dist;
+                closestIdx = idx;
+            }
+        });
+        scrollToIndex(closestIdx);
     }, { passive: true });
-
-    // Start/stop autoplay only when carousel is in view
     // Start/stop autoplay only when carousel is in view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -362,6 +354,7 @@ document.head.appendChild(rippleStyle);
             }
         });
     }, { threshold: 0.3 });
+
     observer.observe(viewport);
     startAuto();
 })();
@@ -441,12 +434,13 @@ document.head.appendChild(rippleStyle);
 
     const viewport = track.closest('.gc-video-viewport');
     const prevBtn = document.querySelector('.gc-video-arrow.prev');
+    const nextBtn = document.querySelector('.gc-video-arrow.next');
     const cards = Array.from(track.children);
     const total = cards.length;
     if (!viewport || !total) return;
 
     let currentIndex = 0;
-    let isVisible = false;
+        let isVisible = false;
     let autoTimer = null;
 
     function scrollToIndex(index, smooth = true) {
@@ -455,23 +449,6 @@ document.head.appendChild(rippleStyle);
         if (!card) return;
         const behavior = smooth ? 'smooth' : 'auto';
         card.scrollIntoView({ behavior, inline: 'center', block: 'nearest' });
-    }
-
-    function getNearestIndex() {
-        const viewportRect = viewport.getBoundingClientRect();
-        let closestIdx = 0;
-        let minDist = Infinity;
-        cards.forEach((card, idx) => {
-            const rect = card.getBoundingClientRect();
-            const cardCenter = rect.left + rect.width / 2;
-            const viewportCenter = viewportRect.left + viewportRect.width / 2;
-            const dist = Math.abs(cardCenter - viewportCenter);
-            if (dist < minDist) {
-                minDist = dist;
-                closestIdx = idx;
-            }
-        });
-        return closestIdx;
     }
 
     function next() {
@@ -483,19 +460,17 @@ document.head.appendChild(rippleStyle);
     }
 
     function startAuto() {
-        if (autoTimer) clearInterval(autoTimer);
         autoTimer = setInterval(() => {
             if (!isVisible) return;
-            const startFrom = getNearestIndex();
-            scrollToIndex(startFrom + 1);
+            next();
         }, 6000);
+        autoTimer = setInterval(next, 6000);
     }
 
     function stopAuto() {
         if (!autoTimer) return;
         clearInterval(autoTimer);
         autoTimer = null;
-    }
     }
 
     if (prevBtn) prevBtn.addEventListener('click', prev);
@@ -507,11 +482,10 @@ document.head.appendChild(rippleStyle);
         if (restartTimeout) clearTimeout(restartTimeout);
         restartTimeout = setTimeout(startAuto, 10000);
     }
+
     viewport.addEventListener('touchstart', userInteracted, { passive: true });
     viewport.addEventListener('wheel', userInteracted, { passive: true });
-    viewport.addEventListener('mousedown', userInteracted);
 
-    // Start/stop autoplay only when carousel is in view
     // Start/stop autoplay only when carousel is in view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -523,9 +497,10 @@ document.head.appendChild(rippleStyle);
                 isVisible = false;
                 stopAuto();
             }
-        }, { threshold: 0.3 });
+        });
+    }, { threshold: 0.3 });
 
-        observer.observe(viewport);
+    observer.observe(viewport);
     startAuto();
 })();
 
