@@ -1322,8 +1322,11 @@ a {
 
 /* viewport masks overflow; responsive width */
 .gc-review-viewport {
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: visible;
     flex: 1;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* horizontal track */
@@ -1356,34 +1359,9 @@ a {
     color: var(--brown-dark);
 }
 
-/* arrows */
+/* hide review arrows on mobile-first drag layout; keep markup for a11y */
 .gc-review-arrow {
-    border: none;
-    background: rgba(255, 255, 255, 0.85);
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    color: var(--brown-dark);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.gc-review-arrow:hover {
-    transform: translateY(-2px);
-    background: #ffffff;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.16);
-}
-
-.gc-review-arrow:disabled {
-    opacity: 0.4;
-    cursor: default;
-    transform: none;
-    box-shadow: none;
+    display: none;
 }
 
 /* Centered on small screens */
@@ -1510,6 +1488,9 @@ a {
     gap: 1.5rem;
     will-change: transform;
     transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .video-card {
@@ -1523,6 +1504,7 @@ a {
     text-align: left;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     flex: 0 0 min(360px, 82vw);
+    scroll-snap-align: center;
 }
 
 .video-card:hover {
@@ -1569,45 +1551,9 @@ a {
     background: #000;
 }
 
+/* hide video arrows on modern mobile-first layout; drag / swipe instead */
 .gc-video-arrow {
-    border: none;
-    background: rgba(255, 255, 255, 0.9);
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: var(--brown-dark);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.14);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.gc-video-arrow:hover {
-    transform: translateY(-2px);
-    background: #ffffff;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-}
-
-.gc-video-arrow:disabled {
-    opacity: 0.4;
-    cursor: default;
-    transform: none;
-    box-shadow: none;
-}
-
-@media (max-width: 768px) {
-    .gc-video-carousel {
-        gap: 0.5rem;
-    }
-
-    .gc-video-arrow {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-    }
+    display: none;
 }
 .gc-menu-takehome {
     /* simple text block now */
