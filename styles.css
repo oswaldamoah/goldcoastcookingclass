@@ -1614,8 +1614,9 @@ a {
 }
 
 .gc-video-viewport {
-    overflow: hidden;
     flex: 1;
+    overflow-x: auto;
+    overflow-y: visible;
 }
 
 .gc-video-track {
@@ -1624,7 +1625,6 @@ a {
     will-change: transform;
     transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
     scroll-snap-type: x mandatory;
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
 

@@ -260,17 +260,19 @@ window.addEventListener('load', () => {
 });
 document.head.appendChild(rippleStyle);
 
-// ==========================================
-// Review Carousel – circular, preview + lightbox carousel
+// Review Carousel – circular, preview + lightbox carousel (auto + manual)
 // ==========================================
 (function initReviewCarousel() {
+    const track = document.getElementById('reviewTrack');
     if (!track) return;
-    if (!track || !prevBtn || !nextBtn) return;
+
+    const viewport = track.closest('.gc-review-viewport');
+    const prevBtn = document.querySelector('.gc-review-arrow.prev');
+    const nextBtn = document.querySelector('.gc-review-arrow.next');
     const cards = Array.from(track.children);
     const total = cards.length;
-    if (!total) return;
+    if (!viewport || !total) return;
 
-    const viewport = track.parentElement;
     let currentIndex = 0;
     let autoTimer = null;
 
@@ -286,6 +288,10 @@ document.head.appendChild(rippleStyle);
         scrollToIndex(currentIndex + 1);
     }
 
+    function prev() {
+        scrollToIndex(currentIndex - 1);
+    }
+
     function startAuto() {
         if (autoTimer) clearInterval(autoTimer);
         autoTimer = setInterval(next, 7000);
@@ -297,17 +303,25 @@ document.head.appendChild(rippleStyle);
         autoTimer = null;
     }
 
-    // Pause auto-scroll when the user starts interacting by touch/scroll
-    let isPointerDown = false;
+    // Arrow buttons (visible on larger screens)
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
 
-    viewport.addEventListener('touchstart', () => {
-        isPointerDown = true;
+    // Pause auto-scroll when the user interacts; resume after a short delay
+    let restartTimeout = null;
+
+    function userInteracted() {
         stopAuto();
-    }, { passive: true });
+        if (restartTimeout) clearTimeout(restartTimeout);
+        restartTimeout = setTimeout(startAuto, 10000);
+    }
 
+    viewport.addEventListener('touchstart', userInteracted, { passive: true });
+    viewport.addEventListener('wheel', userInteracted, { passive: true });
+    viewport.addEventListener('mousedown', userInteracted);
+
+    // Snap to nearest card after manual swipe/scroll on touch devices
     viewport.addEventListener('touchend', () => {
-        isPointerDown = false;
-        // snap to nearest card after manual swipe
         const viewportRect = viewport.getBoundingClientRect();
         let closestIdx = 0;
         let minDist = Infinity;
@@ -324,14 +338,8 @@ document.head.appendChild(rippleStyle);
         scrollToIndex(closestIdx);
     }, { passive: true });
 
-    // Also pause on wheel scroll for desktop users
-    viewport.addEventListener('wheel', () => {
-        stopAuto();
-    }, { passive: true });
-
     // Initial alignment and start auto-scroll
     scrollToIndex(0, false);
-    startAuto();
     startAuto();
 })();
 
@@ -402,16 +410,19 @@ document.head.appendChild(rippleStyle);
     }
 })();
 
+// Video Carousel – auto-scroll + manual scroll/swipe
 // ==========================================
-// Video Lightbox (using <video> not HTML preview only)
 (function initVideoCarousel() {
+    const track = document.querySelector('.gc-video-track');
     if (!track) return;
-    if (!track || !prevBtn || !nextBtn) return;
+
+    const viewport = track.closest('.gc-video-viewport');
+    const prevBtn = document.querySelector('.gc-video-arrow.prev');
+    const nextBtn = document.querySelector('.gc-video-arrow.next');
     const cards = Array.from(track.children);
     const total = cards.length;
-    if (!total) return;
+    if (!viewport || !total) return;
 
-    const viewport = track.parentElement;
     let currentIndex = 0;
     let autoTimer = null;
 
@@ -427,6 +438,10 @@ document.head.appendChild(rippleStyle);
         scrollToIndex(currentIndex + 1);
     }
 
+    function prev() {
+        scrollToIndex(currentIndex - 1);
+    }
+
     function startAuto() {
         if (autoTimer) clearInterval(autoTimer);
         autoTimer = setInterval(next, 6000);
@@ -438,19 +453,25 @@ document.head.appendChild(rippleStyle);
         autoTimer = null;
     }
 
-    viewport.addEventListener('touchstart', () => {
-        stopAuto();
-    }, { passive: true });
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
 
-    viewport.addEventListener('wheel', () => {
+    let restartTimeout = null;
+    function userInteracted() {
         stopAuto();
-    }, { passive: true });
+        if (restartTimeout) clearTimeout(restartTimeout);
+        restartTimeout = setTimeout(startAuto, 10000);
+    }
+
+    viewport.addEventListener('touchstart', userInteracted, { passive: true });
+    viewport.addEventListener('wheel', userInteracted, { passive: true });
+    viewport.addEventListener('mousedown', userInteracted);
 
     scrollToIndex(0, false);
     startAuto();
-    startAuto();
 })();
 
+// ==========================================
 // ==========================================
 (function initVideoLightbox() {
     const modal = document.getElementById('videoModal');
