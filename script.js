@@ -274,6 +274,7 @@ document.head.appendChild(rippleStyle);
     if (!viewport || !total) return;
 
     let currentIndex = 0;
+        let isVisible = false;
     let autoTimer = null;
 
     function scrollToIndex(index, smooth = true) {
@@ -293,7 +294,10 @@ document.head.appendChild(rippleStyle);
     }
 
     function startAuto() {
-        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = setInterval(() => {
+            if (!isVisible) return;
+            next();
+        }, 7000);
         autoTimer = setInterval(next, 7000);
     }
 
@@ -337,9 +341,21 @@ document.head.appendChild(rippleStyle);
         });
         scrollToIndex(closestIdx);
     }, { passive: true });
+    // Start/stop autoplay only when carousel is in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.target !== viewport) return;
+            if (entry.isIntersecting) {
+                isVisible = true;
+                startAuto();
+            } else {
+                isVisible = false;
+                stopAuto();
+            }
+        });
+    }, { threshold: 0.3 });
 
-    // Initial alignment and start auto-scroll
-    scrollToIndex(0, false);
+    observer.observe(viewport);
     startAuto();
 })();
 
@@ -424,6 +440,7 @@ document.head.appendChild(rippleStyle);
     if (!viewport || !total) return;
 
     let currentIndex = 0;
+        let isVisible = false;
     let autoTimer = null;
 
     function scrollToIndex(index, smooth = true) {
@@ -443,7 +460,10 @@ document.head.appendChild(rippleStyle);
     }
 
     function startAuto() {
-        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = setInterval(() => {
+            if (!isVisible) return;
+            next();
+        }, 6000);
         autoTimer = setInterval(next, 6000);
     }
 
@@ -465,9 +485,22 @@ document.head.appendChild(rippleStyle);
 
     viewport.addEventListener('touchstart', userInteracted, { passive: true });
     viewport.addEventListener('wheel', userInteracted, { passive: true });
-    viewport.addEventListener('mousedown', userInteracted);
 
-    scrollToIndex(0, false);
+    // Start/stop autoplay only when carousel is in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.target !== viewport) return;
+            if (entry.isIntersecting) {
+                isVisible = true;
+                startAuto();
+            } else {
+                isVisible = false;
+                stopAuto();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(viewport);
     startAuto();
 })();
 
