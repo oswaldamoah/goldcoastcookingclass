@@ -229,104 +229,76 @@ window.addEventListener('load', () => {
     });
 });
 document.head.appendChild(rippleStyle);
-
-// Review Carousel – circular, preview + lightbox carousel (auto + manual)
+// Reviews: simple, mobile-first layout (no carousel/auto-scroll)
 // ==========================================
-(function initReviewCarousel() {
+(function initReviews() {
     const track = document.getElementById('reviewTrack');
     if (!track) return;
 
-    const viewport = track.closest('.gc-review-viewport');
-    const prevBtn = document.querySelector('.gc-review-arrow.prev');
-    const nextBtn = document.querySelector('.gc-review-arrow.next');
-    const cards = Array.from(track.children);
-    const total = cards.length;
-    if (!viewport || !total) return;
+    const cards = Array.from(track.querySelectorAll('.gc-review-card'));
 
-    let currentIndex = 0;
-        let isVisible = false;
-    let autoTimer = null;
+    // Enhance each card with structured meta (body + author + date)
+    cards.forEach(card => {
+        const full = card.dataset.full || '';
+        const previewEl = card.querySelector('.review-preview');
+        if (!previewEl || !full) return;
 
-    function scrollToIndex(index, smooth = true) {
-        currentIndex = (index + total) % total;
-        const card = cards[currentIndex];
-        if (!card) return;
-        const behavior = smooth ? 'smooth' : 'auto';
-        card.scrollIntoView({ behavior, inline: 'center', block: 'nearest' });
-    }
+        // Expect format: "Body text ... - Name, YYYY-MM-DD"
+        const dashIndex = full.lastIndexOf(' - ');
+        let body = full;
+        let author = '';
+        let dateStr = '';
 
-    function next() {
-        scrollToIndex(currentIndex + 1);
-    }
-
-    function prev() {
-        scrollToIndex(currentIndex - 1);
-    }
-
-    function startAuto() {
-        autoTimer = setInterval(() => {
-            if (!isVisible) return;
-            next();
-        }, 7000);
-        autoTimer = setInterval(next, 7000);
-    }
-
-    function stopAuto() {
-        if (!autoTimer) return;
-        clearInterval(autoTimer);
-        autoTimer = null;
-    }
-
-    // Arrow buttons (visible on larger screens)
-    if (prevBtn) prevBtn.addEventListener('click', prev);
-    if (nextBtn) nextBtn.addEventListener('click', next);
-
-    // Pause auto-scroll when the user interacts; resume after a short delay
-    let restartTimeout = null;
-
-    function userInteracted() {
-        stopAuto();
-        if (restartTimeout) clearTimeout(restartTimeout);
-        restartTimeout = setTimeout(startAuto, 10000);
-    }
-
-    viewport.addEventListener('touchstart', userInteracted, { passive: true });
-    viewport.addEventListener('wheel', userInteracted, { passive: true });
-    viewport.addEventListener('mousedown', userInteracted);
-
-    // Snap to nearest card after manual swipe/scroll on touch devices
-    viewport.addEventListener('touchend', () => {
-        const viewportRect = viewport.getBoundingClientRect();
-        let closestIdx = 0;
-        let minDist = Infinity;
-        cards.forEach((card, idx) => {
-            const rect = card.getBoundingClientRect();
-            const cardCenter = rect.left + rect.width / 2;
-            const viewportCenter = viewportRect.left + viewportRect.width / 2;
-            const dist = Math.abs(cardCenter - viewportCenter);
-            if (dist < minDist) {
-                minDist = dist;
-                closestIdx = idx;
-            }
-        });
-        scrollToIndex(closestIdx);
-    }, { passive: true });
-    // Start/stop autoplay only when carousel is in view
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.target !== viewport) return;
-            if (entry.isIntersecting) {
-                isVisible = true;
-                startAuto();
+        if (dashIndex !== -1) {
+            body = full.slice(0, dashIndex).trim();
+            const meta = full.slice(dashIndex + 3).trim();
+            const commaIndex = meta.lastIndexOf(',');
+            if (commaIndex !== -1) {
+                author = meta.slice(0, commaIndex).trim();
+                dateStr = meta.slice(commaIndex + 1).trim();
             } else {
-                isVisible = false;
-                stopAuto();
+                author = meta;
             }
-        });
-    }, { threshold: 0.3 });
+        }
 
-    observer.observe(viewport);
-    startAuto();
+        // Update preview text to a shorter version of the body for the card
+        const maxChars = 220;
+        let previewText = body;
+        if (body.length > maxChars) {
+            previewText = body.slice(0, maxChars).trimEnd() + '...';
+        }
+        previewEl.textContent = previewText;
+
+        // Create / update a meta block inside the card
+        let metaEl = card.querySelector('.gc-review-meta');
+        if (!metaEl) {
+            metaEl = document.createElement('div');
+            metaEl.className = 'gc-review-meta';
+            card.appendChild(metaEl);
+        }
+
+        const nameEl = document.createElement('div');
+        nameEl.className = 'gc-review-author';
+        nameEl.textContent = author || '';
+
+        const dateEl = document.createElement('div');
+        dateEl.className = 'gc-review-date';
+        if (dateStr) {
+            const d = new Date(dateStr);
+            if (!isNaN(d.valueOf())) {
+                dateEl.textContent = d.toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+            } else {
+                dateEl.textContent = dateStr;
+            }
+        }
+
+        metaEl.appendChild(nameEl);
+        if (dateEl.textContent) metaEl.appendChild(dateEl);
+    });
 })();
 
 // ==========================================
@@ -395,84 +367,9 @@ document.head.appendChild(rippleStyle);
         });
     }
 })();
-
-// Video Carousel – auto-scroll + manual scroll/swipe
+// Video gallery: simple mobile-first layout, no carousel/auto-scroll
 // ==========================================
-(function initVideoCarousel() {
-    const track = document.querySelector('.gc-video-track');
-    if (!track) return;
-
-    const viewport = track.closest('.gc-video-viewport');
-    const prevBtn = document.querySelector('.gc-video-arrow.prev');
-    const nextBtn = document.querySelector('.gc-video-arrow.next');
-    const cards = Array.from(track.children);
-    const total = cards.length;
-    if (!viewport || !total) return;
-
-    let currentIndex = 0;
-        let isVisible = false;
-    let autoTimer = null;
-
-    function scrollToIndex(index, smooth = true) {
-        currentIndex = (index + total) % total;
-        const card = cards[currentIndex];
-        if (!card) return;
-        const behavior = smooth ? 'smooth' : 'auto';
-        card.scrollIntoView({ behavior, inline: 'center', block: 'nearest' });
-    }
-
-    function next() {
-        scrollToIndex(currentIndex + 1);
-    }
-
-    function prev() {
-        scrollToIndex(currentIndex - 1);
-    }
-
-    function startAuto() {
-        autoTimer = setInterval(() => {
-            if (!isVisible) return;
-            next();
-        }, 6000);
-        autoTimer = setInterval(next, 6000);
-    }
-
-    function stopAuto() {
-        if (!autoTimer) return;
-        clearInterval(autoTimer);
-        autoTimer = null;
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', prev);
-    if (nextBtn) nextBtn.addEventListener('click', next);
-
-    let restartTimeout = null;
-    function userInteracted() {
-        stopAuto();
-        if (restartTimeout) clearTimeout(restartTimeout);
-        restartTimeout = setTimeout(startAuto, 10000);
-    }
-
-    viewport.addEventListener('touchstart', userInteracted, { passive: true });
-    viewport.addEventListener('wheel', userInteracted, { passive: true });
-
-    // Start/stop autoplay only when carousel is in view
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.target !== viewport) return;
-            if (entry.isIntersecting) {
-                isVisible = true;
-                startAuto();
-            } else {
-                isVisible = false;
-                stopAuto();
-            }
-        });
-    }, { threshold: 0.3 });
-
-    observer.observe(viewport);
-    startAuto();
-})();
+// Layout is handled with CSS grid / flex; JS only handles lightbox.
 
 // ==========================================
 // ==========================================

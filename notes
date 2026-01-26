@@ -17,3 +17,6 @@ use fontawesome for icons instead of drawing them manually
 
 move guest review section before video section. 
 for the reviews make the cards look like note sheets. just give review aesthetic formatting the names of reviewers and dates nicely especially in full review view but maintain structure. 
+
+
+make the transition between the sections smoother. rn its doing some invisible section appear out of no where irregularly thing. it should be smooth and consistent. also spaces between sections should be good enough - not too long. all this is verticla btw

@@ -1425,37 +1425,23 @@ a {
     padding: 3rem 1.5rem 3.5rem;
 }
 
-/* Carousel shell */
+/* Shell – simple stacked layout on mobile, grid on larger screens */
 .gc-review-carousel-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     margin-top: 2rem;
 }
 
-/* viewport masks overflow; responsive width */
 .gc-review-viewport {
-    overflow-x: auto;
-    overflow-y: visible;
-    flex: 1;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
 }
 
-/* horizontal track */
 .gc-review-track {
     display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    will-change: transform;
-    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* review card design */
 .gc-review-card {
-    flex: 0 0 100%;
-    max-width: 580px;
-    margin: 0 auto;
     background: #ffffff;
     border-radius: 20px;
     padding: 1.6rem 1.8rem;
@@ -1465,17 +1451,36 @@ a {
     color: var(--text-medium);
 }
 
-/* name / date styling if you pull them out later */
-.gc-review-card strong {
-    display: block;
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
+.gc-review-meta {
+    margin-top: 1rem;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+.gc-review-author {
+    font-weight: 600;
     color: var(--brown-dark);
 }
 
-/* hide review arrows on mobile-first drag layout; keep markup for a11y */
+.gc-review-date {
+    opacity: 0.8;
+}
+
+/* hide review arrows entirely (no carousel now) */
 .gc-review-arrow {
     display: none;
+}
+
+@media (min-width: 768px) {
+    .gc-review-track {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 /* Centered on small screens */
@@ -1542,16 +1547,6 @@ a {
         transform: translateY(-4px) rotate(-45deg);
     }
 
-    .gc-review-carousel-wrapper {
-        gap: 0.5rem;
-    }
-
-    .gc-review-arrow {
-        width: 32px;
-        height: 32px;
-        font-size: 1.1rem;
-    }
-
     .gc-review-card {
         padding: 1.3rem 1.4rem;
         font-size: 0.98rem;
@@ -1584,27 +1579,19 @@ a {
     color: var(--text-medium);
     font-size: 1.05rem;
 }
+
 .gc-video-carousel {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     margin-top: 2rem;
 }
 
 .gc-video-viewport {
-    flex: 1;
-    overflow-x: auto;
-    overflow-y: visible;
+    overflow: visible;
 }
 
 .gc-video-track {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    will-change: transform;
-    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
 }
 
 .video-card {
@@ -1616,20 +1603,17 @@ a {
     box-shadow: 0 10px 30px var(--shadow);
     overflow: hidden;
     text-align: left;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    flex: 0 0 min(360px, 82vw);
-    scroll-snap-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.video-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px var(--shadow-medium);
+.video-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 6px 18px var(--shadow-medium);
 }
 
 .video-thumb {
     position: relative;
     aspect-ratio: 4 / 3;
-    height: auto;
     background: #000;
     overflow: hidden;
 }
@@ -1665,9 +1649,14 @@ a {
     background: #000;
 }
 
-/* hide video arrows on modern mobile-first layout; drag / swipe instead */
 .gc-video-arrow {
     display: none;
+}
+
+@media (min-width: 768px) {
+    .gc-video-track {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 .gc-menu-takehome {
     /* simple text block now */
