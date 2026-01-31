@@ -668,6 +668,43 @@ a {
     margin-top: 1.8rem;
 }
 
+.contact-review {
+    margin-top: 1.4rem;
+    padding: 1.05rem 1.25rem 1.15rem;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 248, 240, 0.28);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.contact-note--review {
+    font-size: 0.9rem;
+}
+
+.contact-review-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-top: 0.85rem;
+    padding: 0.6rem 1.7rem;
+    border-radius: 999px;
+    background: var(--accent-gold);
+    color: var(--brown-darker);
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.75);
+    border: none;
+}
+
+.contact-review-button:hover {
+    background: #b08b35;
+    color: var(--brown-darker);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.9);
+}
+
 .social-links {
     display: flex;
     gap: 1.25rem;
@@ -1684,7 +1721,7 @@ a {
 }
 
 .fa-brands {
-    padding-top : 4px;
+    padding-top : 1px;
 }
 
 /* ==========================================
