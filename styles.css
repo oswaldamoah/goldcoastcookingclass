@@ -1502,6 +1502,7 @@ a {
 /* Shell – simple stacked layout on mobile, grid on larger screens */
 .gc-review-carousel-wrapper {
     margin-top: 2rem;
+    overflow: visible; /* allow cards to use full width without clipping */
 }
 
 .gc-review-viewport {
@@ -1523,6 +1524,8 @@ a {
     font-size: 1.02rem;
     line-height: 1.8;
     color: var(--text-medium);
+    width: 100%;
+    min-width: 0; /* override earlier min-width so cards don't overflow */
 }
 
 .gc-review-meta {
