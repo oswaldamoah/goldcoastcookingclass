@@ -305,18 +305,57 @@ document.head.appendChild(rippleStyle);
 // Review Full Text Modal + carousel controls
 // ==========================================
 (function initReviewModal() {
-    const reviewModal = document.getElementById('reviewModal');
     const reviewFullText = document.getElementById('reviewFullText');
+    const reviewFullAuthor = document.getElementById('reviewFullAuthor');
+    const reviewFullDate = document.getElementById('reviewFullDate');
     const reviewPrev = document.getElementById('reviewModalPrev');
     const reviewNext = document.getElementById('reviewModalNext');
     const cards = Array.from(document.querySelectorAll('#reviewTrack .gc-review-card'));
     if (!reviewModal || !reviewFullText || !cards.length) return;
 
     let currentIndex = 0;
-
     function openReviewModal(index) {
         currentIndex = (index + cards.length) % cards.length;
         const full = cards[currentIndex].dataset.full || '';
+
+        // Parse "Body ... - Name, YYYY-MM-DD" into parts
+        let body = full;
+        let author = '';
+        let dateStr = '';
+
+        const dashIndex = full.lastIndexOf(' - ');
+        if (dashIndex !== -1) {
+            body = full.slice(0, dashIndex).trim();
+            const meta = full.slice(dashIndex + 3).trim();
+            const commaIndex = meta.lastIndexOf(',');
+            if (commaIndex !== -1) {
+                author = meta.slice(0, commaIndex).trim();
+                dateStr = meta.slice(commaIndex + 1).trim();
+            } else {
+                author = meta;
+            }
+        }
+
+        reviewFullText.textContent = body;
+        if (reviewFullAuthor) {
+            reviewFullAuthor.textContent = author;
+        }
+        if (reviewFullDate) {
+            if (dateStr) {
+                const d = new Date(dateStr);
+                if (!isNaN(d.valueOf())) {
+                    reviewFullDate.textContent = d.toLocaleDateString(undefined, {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                } else {
+                    reviewFullDate.textContent = dateStr;
+                }
+            } else {
+                reviewFullDate.textContent = '';
+            }
+        }
         reviewFullText.textContent = full;
         reviewModal.classList.add('is-open');
         reviewModal.setAttribute('aria-hidden', 'false');
